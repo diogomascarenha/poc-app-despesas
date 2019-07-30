@@ -1,0 +1,29 @@
+version: '3.7'
+services:
+  php:
+    build:
+      context: ./.docker/php
+    environment:
+      - APACHE_RUN_USER=#${UID}
+      - APACHE_RUN_GROUP=#${GID}
+    ports:
+    - 80:80
+    - 443:443
+    volumes:
+      - .:/var/www/html
+    links:
+      - postgres
+    depends_on:
+      - postgres
+
+  postgres:
+    build:
+      context: ./.docker/postgres
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: application
+      POSTGRES_USER: dbuser
+      POSTGRES_PASSWORD: dbsecret
+    volumes:
+      - ./.docker/data/postgres:/var/lib/postgresql/data
