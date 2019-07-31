@@ -140,6 +140,13 @@
                     title: {
                         display: true,
                         text: 'Resumo'
+                    },
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
                     }
                 }
             });
