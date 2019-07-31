@@ -20,3 +20,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('vendedor', 'VendedorController');
 Route::resource('registro', 'RegistroController');
+Route::get('/sincronizar', 'SincronizarController@index')->name('sincronizar.index');

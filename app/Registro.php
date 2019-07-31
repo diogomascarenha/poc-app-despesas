@@ -31,4 +31,9 @@ class Registro extends Model
     {
         return $this->belongsTo(RegistroTipo::class, 'registro_tipo_id','id');
     }
+
+    public function vendedor()
+    {
+        return $this->belongsTo(Vendedor::class, 'vendedor_id','id');
+    }
 }
